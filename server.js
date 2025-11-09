@@ -16,7 +16,7 @@ if (!fs.existsSync('./data.db')) {
     db.run(`CREATE TABLE rooms (id INTEGER PRIMARY KEY AUTOINCREMENT, tenant_id INTEGER, number TEXT, category TEXT, status TEXT, notes TEXT)`);
     db.run(`CREATE TABLE history (id INTEGER PRIMARY KEY AUTOINCREMENT, tenant_id INTEGER, action TEXT, actor TEXT, timestamp TEXT, details TEXT)`);
     const pass = bcrypt.hashSync('Pulse@123', 10);
-    db.run(`INSERT INTO users (email,password,role,tenant_id) VALUES (?,?,?,?)`, ['pulse@pulse.stay', pass, 'super_admin', NULL]);
+    db.run(`INSERT INTO users (email,password,role,tenant_id) VALUES (?,?,?,?)`, ['pulse@pulse.stay', pass, 'super_admin', null]);
   });
   db.close();
 }
